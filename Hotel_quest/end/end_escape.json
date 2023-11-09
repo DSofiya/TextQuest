@@ -1,0 +1,15 @@
+{
+    "description": "Ви ніким непомічений виходите з готелю та зникаєте серед вулиць невеликого портового містечка Готлінг",
+    "ansvers":  {
+        "ansver1": ["", ""],
+        "ansver2": ["", ""]
+    },
+
+    "items": {
+        "folse_phoenix": "False" ,
+        "phoenix": "False",
+        "dew": "False",
+        "tears": "False"
+    }
+}
+    

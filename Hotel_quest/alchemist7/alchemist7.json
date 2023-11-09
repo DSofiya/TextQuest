@@ -1,0 +1,15 @@
+{
+    "description": "Ви бачите, що в холі зараз тільки адміністратор та лепрекон, який розповідає щось йому, дуже активно розмахуючи руками. ",
+    "ansvers":  {
+        "ansver1": ["Тихенько втекти з готелю, прихопивши аванс", "Hotel_quest\\alchemist7\\alchemist7_choice1.json"],
+        "ansver2": ["Підійти до адміністратора, запитати що сталось.", "Hotel_quest\\alchemist7\\alchemist7_choice2.json"]
+    },
+
+    "items": {
+        "folse_phoenix": "False" ,
+        "phoenix": "False",
+        "dew": "False",
+        "tears": "False"
+    }
+}
+    

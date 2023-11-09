@@ -1,0 +1,15 @@
+{
+    "description": "Ви даєте йому 2 золотих монети і вони швидко зникають в його кишені. Лепрекон  перестає плакати і ви помічаєте в його погляді щось схоже на повагу. Ви розумієте що потрібно хоча б почати пошуки, адже часу не так і багато. ",
+    "ansvers":  {
+        "ansver1": ["Ви розчаровано видихаєте, та ідете на кухню.", "Hotel_quest\\alchemist9\\alchemist9_choice1.json"],
+        "ansver2": ["Прослідкувати за лепреконом до холу", "Hotel_quest\\alchemist9\\alchemist9_choice2.json"]
+    },
+
+    "items": {
+        "folse_phoenix": "False" ,
+        "phoenix": "False",
+        "dew": "False",
+        "tears": "False"
+    }
+}
+    

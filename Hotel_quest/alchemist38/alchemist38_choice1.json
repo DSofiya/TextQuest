@@ -1,0 +1,16 @@
+{
+    "next": [
+        "Hotel_quest\\end\\end_rich"
+    ],
+    
+    "currency": {
+        "gold": 500
+    },
+    
+    "selection": {
+        "class_selection": "False",
+        "race_selection": "False",
+        "gender_selection": "False"
+    }
+}
+    

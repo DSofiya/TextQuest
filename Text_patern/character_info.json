@@ -1,0 +1,17 @@
+{
+    "name": "Моє ім'я - Хадріан",
+    "race": [
+        "Моя раса - Ельф",
+        "_e"
+    ],
+    "class": [
+        "Мій клас - Воїн",
+        "_f"
+    ],
+    "gender": [
+        "Моя стать - Жінка",
+        "_f"
+    ],
+    "first_file_path": "Hotel_quest\\beginning\\beginning.json",
+    "file_path_item": "Hotel_quest\\items.json"
+}

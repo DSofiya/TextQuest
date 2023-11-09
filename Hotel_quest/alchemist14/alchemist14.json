@@ -1,0 +1,15 @@
+{
+    "description": "Ви забираєте у нього з рук пір'їну та направляєтесь до виходу. Вас проводжає мертва тиша, на такій шумній ще 5 хвилин назад, кухні. Куди ви підете далі?",
+    "ansvers":  {
+        "ansver1": ["Повернутись до кімнати алхіміка,\n за підказками, куди іти далі.", "Hotel_quest\\alchemist14\\alchemist14_choice1.json"],
+        "ansver2": ["Повернутись до холу готелю та пошукати \n інші зачіпки", "Hotel_quest\\alchemist14\\alchemist14_choice2.json"]
+    },
+
+    "items": {
+        "folse_phoenix": "True" ,
+        "phoenix": "False",
+        "dew": "False",
+        "tears": "False"
+    }
+}
+    

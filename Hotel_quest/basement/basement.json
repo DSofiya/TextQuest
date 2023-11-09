@@ -1,0 +1,15 @@
+{
+    "description": "'Нажаль це завдання зараз зайняте, у підвал спустився інший пригодник  Ольдгер Безстрашний. Якщо у нього не вийде я обов'язково вам повідомлю' - говорить ельф",
+    "ansvers":  {
+        "ansver1": ["Повернутися до вибору пригоди", "Hotel_quest\\basement\\basement_choice1.json"],
+        "ansver2": ["Ну що ж, тоді візьму інше завдання", "Hotel_quest\\basement\\basement_choice2.json"]
+    },
+
+    "items": {
+        "folse_phoenix": "False" ,
+        "phoenix": "False",
+        "dew": "False",
+        "tears": "False"
+    }
+}
+    

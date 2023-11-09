@@ -1,0 +1,16 @@
+{
+    "next": [
+        "Hotel_quest\\alchemist16\\alchemist16"
+    ],
+    
+    "currency": {
+        "gold": 0
+    },
+    
+    "selection": {
+        "class_selection": "False",
+        "race_selection": "False",
+        "gender_selection": "False"
+    }
+}
+    

@@ -1,0 +1,15 @@
+{
+    "description": "Ви завершуєте свою пригоду, так і не розпочавши її",
+    "ansvers":  {
+        "ansver1": ["", ""],
+        "ansver2": ["", ""]
+    },
+
+    "items": {
+        "folse_phoenix": "False" ,
+        "phoenix": "False",
+        "dew": "False",
+        "tears": "False"
+    }
+}
+    

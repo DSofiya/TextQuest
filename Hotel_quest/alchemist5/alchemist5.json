@@ -1,0 +1,15 @@
+{
+    "description": "Ви помічаєте тінь, що зникла за дверима, і розумієте що хтось підслуховував, а можливо і бачив усе, що відбувалось в кімнаті. Що ви будете робити? ",
+    "ansvers":  {
+        "ansver1": ["Спробувати наздогнати тінь", "Hotel_quest\\alchemist5\\alchemist5_choice1.json"],
+        "ansver2": ["Продовжити свій шлях на  кухню", "Hotel_quest\\alchemist5\\alchemist5_choice2.json"]
+    },
+
+    "items": {
+        "folse_phoenix": "False" ,
+        "phoenix": "False",
+        "dew": "False",
+        "tears": "False"
+    }
+}
+    
