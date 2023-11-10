@@ -1,9 +1,12 @@
 {
     "next": [
-        "Hotel_quest\\alchemist16\\alchemist16",
-        "Hotel_quest\\end\\end_room"
+        "Hotel_quest", "alchemist16", "alchemist16"
     ],
     
+    "next_end": [
+        "Hotel_quest", "end", "end_room"
+    ],
+
     "currency": {
         "gold": 0
     },

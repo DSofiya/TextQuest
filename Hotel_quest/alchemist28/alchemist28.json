@@ -1,8 +1,8 @@
 {
     "description": "Напевно це була остання капля на сьогодні, від вашого тичка він скривився і гірко заплакав. Ви діловито зібрали його сльози в хустинку і пішли назад у готель. Ви звичайно гидота, але тепер у вас є 'сльозки кентавра'",
     "ansvers":  {
-        "ansver1": ["Повернутись до алхіміка", "Hotel_quest\\alchemist28\\alchemist28_choice1.json"],
-        "ansver2": ["Іти на фестиваль 'кришталевої квітки'", "Hotel_quest\\alchemist28\\alchemist28_choice2.json"]
+        "ansver1": ["Повернутись до алхіміка", "Hotel_quest", "alchemist28", "alchemist28_choice1.json"],
+        "ansver2": ["Іти на фестиваль 'кришталевої квітки'", "Hotel_quest", "alchemist28", "alchemist28_choice2.json"]
     },
 
     "items": {

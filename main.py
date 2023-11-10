@@ -1,20 +1,24 @@
 import pygame
 import sys
+import os
 import subprocess
 from general_function import load_images, select_font
 
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 
+
 class GameInitializer:
     @staticmethod
     def initialize_game():
         pygame.init()
-        bg_image = pygame.image.load("Menu_images\\picture_character.jpg")
+        image_path = os.path.join("Menu_images", "picture_character.jpg")
+        bg_image = pygame.image.load(image_path)
         WINDOW_SIZE = bg_image.get_size()
         window = pygame.display.set_mode(WINDOW_SIZE)
         pygame.display.set_caption("DnD Game Menu")
         return window, WINDOW_SIZE, bg_image
+
 
 class Button:
     def __init__(self, x, y, width, height, image_path, text):
@@ -32,34 +36,64 @@ class Button:
     def is_clicked(self, pos):
         return self.rect.collidepoint(pos)
 
+
 class ButtonManager:
     @staticmethod
     def load_buttons(WINDOW_SIZE):
         buttons_data = [
-        {"x": WINDOW_SIZE[0] / 2.5, "y": WINDOW_SIZE[0] / 4, "width": WINDOW_SIZE[0] / 5, "height": WINDOW_SIZE[1] / 8,
-        "image_path": "Menu_images\\button.png", "text": "Створити героя"},
-
-        {"x": WINDOW_SIZE[0] / 2.5, "y":   WINDOW_SIZE[0] / 3.2, "width": WINDOW_SIZE[0] / 5, "height": WINDOW_SIZE[1] /8,
-        "image_path": "Menu_images\\button.png", "text": "Обрати пригоду"},
-
-        {"x": WINDOW_SIZE[0] / 2.5, "y": WINDOW_SIZE[0] / 2.6, "width": WINDOW_SIZE[0] / 5, "height": WINDOW_SIZE[1] / 8,
-        "image_path": "Menu_images\\button.png", "text": "Вихід"}]
-        buttons = [Button(data["x"], data["y"], data["width"], data["height"], data["image_path"], data["text"]) for data in buttons_data]
+            {
+                "x": WINDOW_SIZE[0] / 2.5,
+                "y": WINDOW_SIZE[0] / 4,
+                "width": WINDOW_SIZE[0] / 5,
+                "height": WINDOW_SIZE[1] / 8,
+                "image_path": os.path.join("Menu_images", "button.png"),
+                "text": "Створити героя",
+            },
+            {
+                "x": WINDOW_SIZE[0] / 2.5,
+                "y": WINDOW_SIZE[0] / 3.2,
+                "width": WINDOW_SIZE[0] / 5,
+                "height": WINDOW_SIZE[1] / 8,
+                "image_path": os.path.join("Menu_images", "button.png"),
+                "text": "Обрати пригоду",
+            },
+            {
+                "x": WINDOW_SIZE[0] / 2.5,
+                "y": WINDOW_SIZE[0] / 2.6,
+                "width": WINDOW_SIZE[0] / 5,
+                "height": WINDOW_SIZE[1] / 8,
+                "image_path": os.path.join("Menu_images", "button.png"),
+                "text": "Вихід",
+            },
+        ]
+        buttons = [
+            Button(
+                data["x"],
+                data["y"],
+                data["width"],
+                data["height"],
+                data["image_path"],
+                data["text"],
+            )
+            for data in buttons_data
+        ]
         return buttons
+
 
 class MenuRenderer:
     @staticmethod
-    def render_menu(window, bg_image, buttons, fon_font,big_font, WINDOW_SIZE):
+    def render_menu(window, bg_image, buttons, fon_font, big_font, WINDOW_SIZE):
         window.blit(bg_image, (0, 0))
         for button in buttons:
             button.draw(window, fon_font)
         title_text = big_font.render("Меню гри ", True, BLACK)
-        image_race, image_clas, _ =load_images()
+        image_race, image_clas, _ = load_images()
 
-        window.blit(title_text, (WINDOW_SIZE[0] / 2.5,  WINDOW_SIZE[0] / 5.5))
-        window.blit(image_race, (WINDOW_SIZE[0] /7 , WINDOW_SIZE[1] / 4)) 
-        window.blit(image_clas, (WINDOW_SIZE[0] /1.6, WINDOW_SIZE[1] / 2.5))
+        window.blit(title_text, (WINDOW_SIZE[0] / 2.5, WINDOW_SIZE[0] / 5.5))
+        window.blit(image_race, (WINDOW_SIZE[0] / 7, WINDOW_SIZE[1] / 4))
+        window.blit(image_clas, (WINDOW_SIZE[0] / 1.6, WINDOW_SIZE[1] / 2.5))
         pygame.display.flip()
+
 
 class MenuEventHandler:
     @staticmethod
@@ -86,15 +120,19 @@ class MenuEventHandler:
             pygame.quit()
             sys.exit()
 
+
 def main():
     window, WINDOW_SIZE, bg_image = GameInitializer.initialize_game()
     fon_font, _, big_font = select_font()
     buttons = ButtonManager.load_buttons(WINDOW_SIZE)
-    
+
     while True:
         MenuEventHandler.handle_events(buttons)
-        MenuRenderer.render_menu(window, bg_image, buttons, fon_font,big_font, WINDOW_SIZE)
+        MenuRenderer.render_menu(
+            window, bg_image, buttons, fon_font, big_font, WINDOW_SIZE
+        )
         pygame.display.flip()
+
 
 if __name__ == "__main__":
     main()

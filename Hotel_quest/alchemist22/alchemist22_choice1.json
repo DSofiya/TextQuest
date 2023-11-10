@@ -1,7 +1,7 @@
 {
     "next": [
-        "Hotel_quest\\alchemist15\\alchemist15", 
-        "Hotel_quest\\end\\end_alchemist"
+        "Hotel_quest", "alchemist15", "alchemist15", 
+        "Hotel_quest", "end", "end_alchemist"
     ],
     
     "currency": {

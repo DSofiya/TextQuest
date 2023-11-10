@@ -1,8 +1,8 @@
 {
     "description": "'Я шукаю кентавра, чи не бачив ти його в готелі?'- запитуєте ви. Ваш співрозмовник не довго думаючи відповідає:'Якщо вони  і є тут, то їх варто шукати в саду готелю, як і інших істот наближених до природи. А може передумаєш?'",
     "ansvers":  {
-        "ansver1": ["В сад", "Hotel_quest\\alchemist25\\alchemist25_choice1.json"],
-        "ansver2": ["А знаєте,  мені подобається ваша пропозиція", "Hotel_quest\\alchemist25\\alchemist25_choice2.json"]
+        "ansver1": ["В сад", "Hotel_quest", "alchemist25", "alchemist25_choice1.json"],
+        "ansver2": ["А знаєте,  мені подобається ваша пропозиція", "Hotel_quest", "alchemist25", "alchemist25_choice2.json"]
     },
 
     "items": {

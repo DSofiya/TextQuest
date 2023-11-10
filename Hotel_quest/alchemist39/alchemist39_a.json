@@ -1,8 +1,8 @@
 {
     "description": "У коридорі ви зустрічаєте маленьку дівчинку, яка дуже гірко плаче. Що ви будете робити, пройдете повз чи зупинитесь і  запитаєте що сталось?",
     "ansvers":  {
-        "ansver1": ["Заспокоїти дівчинку", "Hotel_quest\\alchemist39\\alchemist39_choice1.json"],
-        "ansver2": ["Іти на кухню", "Hotel_quest\\alchemist39\\alchemist39_choice2.json"]
+        "ansver1": ["Заспокоїти дівчинку", "Hotel_quest", "alchemist39", "alchemist39_choice1.json"],
+        "ansver2": ["Іти на кухню", "Hotel_quest", "alchemist39", "alchemist39_choice2.json"]
     },
 
     "items": {

@@ -1,8 +1,8 @@
 {
     "description": "Ви стрімко відкриваєте двері до номеру і збиваєте з ніг якогось незнайомця. Що ви робитимете? ",
     "ansvers":  {
-        "ansver1": ["Вибачитись і допомогти піднятись тому,\n кого ви збили.", "Hotel_quest\\alchemist18\\alchemist18_choice1.json"],
-        "ansver2": ["Зробити вигляд, що все добре \n і ви так і хотіли.", "Hotel_quest\\alchemist18\\alchemist18_choice2.json"]
+        "ansver1": ["Вибачитись і допомогти піднятись тому,\n кого ви збили.", "Hotel_quest", "alchemist18", "alchemist18_choice1.json"],
+        "ansver2": ["Зробити вигляд, що все добре \n і ви так і хотіли.", "Hotel_quest", "alchemist18", "alchemist18_choice2.json"]
     },
 
     "items": {

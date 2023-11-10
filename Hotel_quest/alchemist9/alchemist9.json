@@ -1,8 +1,8 @@
 {
     "description": "Врешті ви відпускаєте його. Тікаючи він обертається і ви бачите, як злісно блищать його маленькі очі. Ви розуміте що потрібно хоча б почати пошуки, адже часу не так і багато.  ",
     "ansvers":  {
-        "ansver1": ["Ви розчаровано видихаєте, та ідете на кухню.", "Hotel_quest\\alchemist9\\alchemist9_choice1.json"],
-        "ansver2": ["Прослідкувати за лепреконом до холу", "Hotel_quest\\alchemist9\\alchemist9_choice2.json"]
+        "ansver1": ["Ви розчаровано видихаєте, та ідете на кухню.", "Hotel_quest", "alchemist9", "alchemist9_choice1.json"],
+        "ansver2": ["Прослідкувати за лепреконом до холу", "Hotel_quest", "alchemist9", "alchemist9_choice2.json"]
     },
 
     "items": {

@@ -1,8 +1,8 @@
 {
     "description": "Ви вирішує почати бігти, щоб наздогнати невідому постать. Так як людина є вправним бігуном, то ви легко наздоганяє невідомого. Ним виявляється, рудий невеликого зросту лепрекон, він бачить що ви його наздоганяєте, та намагається втекти в сторону холу. Схопити лепрекона? ",
     "ansvers":  {
-        "ansver1": ["Так, схопити засранця!", "Hotel_quest\\alchemist6\\alchemist6_choice3.json"],
-        "ansver2": ["Продовжити шлях на кухню.", "Hotel_quest\\alchemist6\\alchemist6_choice2.json"]
+        "ansver1": ["Так, схопити засранця!", "Hotel_quest", "alchemist6", "alchemist6_choice3.json"],
+        "ansver2": ["Продовжити шлях на кухню.", "Hotel_quest", "alchemist6", "alchemist6_choice2.json"]
     },
 
     "items": {

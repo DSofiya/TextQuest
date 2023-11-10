@@ -1,8 +1,8 @@
 {
     "description": "Що ж, це розумний підхід, в заявці я вказував 10 золотих, можеш взяти 5 золотих авансу. Ви помічаєте невеликий шкіряний мішечок на столі біля себе, ви його відкриваєте, там 10 золотих. Ви бачите що алхімік зосереджено помішує зілля та не дивиться у вашу сторону. Що ви зробите? ",
     "ansvers":  {
-        "ansver1": ["Візьму 10 золотих.", "Hotel_quest\\alchemist3\\alchemist3_choice1.json"],
-        "ansver2": ["Взяти 5 золотих.", "Hotel_quest\\alchemist3\\alchemist3_choice2.json"]
+        "ansver1": ["Візьму 10 золотих.", "Hotel_quest", "alchemist3", "alchemist3_choice1.json"],
+        "ansver2": ["Взяти 5 золотих.", "Hotel_quest", "alchemist3", "alchemist3_choice2.json"]
     },
 
     "items": {

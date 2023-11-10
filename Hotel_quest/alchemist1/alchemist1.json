@@ -1,8 +1,8 @@
 {
     "description": "Я б з легкістю  зробив це сам, адже у цьому готелі є що завгодно. Але на цьому етапі мій еліксир потребує зосередженості та постійної уваги і я не зможу покинути номер ще 10 годин. А інгредієнти мені потрібні вже зараз. То ти берешся за справу? ",
     "ansvers":  {
-        "ansver1": ["Так,звичайно", "Hotel_quest\\alchemist1\\alchemist1_choice1.json"],
-        "ansver2": ["Ні,пошукаю інше завдання", "Hotel_quest\\alchemist1\\alchemist1_choice2.json"]
+        "ansver1": ["Так,звичайно", "Hotel_quest", "alchemist1", "alchemist1_choice1.json"],
+        "ansver2": ["Ні,пошукаю інше завдання", "Hotel_quest", "alchemist1", "alchemist1_choice2.json"]
     },
 
     "items": {

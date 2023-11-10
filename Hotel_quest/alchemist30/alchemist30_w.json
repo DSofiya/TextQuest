@@ -1,8 +1,8 @@
 {
     "description": "Поки ви крокуєте до кентавра, необхідно вирішити що робити далі. Як чарівник ви можете вилити йому в обличчя зілля яке напевне викличе у нього сльози, але воно зачепить вас та ще можливо інших істот. А можете просто чесно попросити одненьку сльозу.",
     "ansvers":  {
-        "ansver1": ["Розпилити зілля біля його обличчя", "Hotel_quest\\alchemist30\\alchemist30_choice1.json"],
-        "ansver2": ["Просто пояснити йому всю ситуацію", "Hotel_quest\\alchemist30\\alchemist30_choice2.json"]
+        "ansver1": ["Розпилити зілля біля його обличчя", "Hotel_quest", "alchemist30", "alchemist30_choice1.json"],
+        "ansver2": ["Просто пояснити йому всю ситуацію", "Hotel_quest", "alchemist30", "alchemist30_choice2.json"]
     },
 
     "items": {

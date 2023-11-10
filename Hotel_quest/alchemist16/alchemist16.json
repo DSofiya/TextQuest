@@ -1,8 +1,8 @@
 {
     "description": "Ви підійшли до дверей номеру 203. Раптом чуєте крики та як розбивається скло, звук лунає саме з цього номеру. Що ви робите?",
     "ansvers":  {
-        "ansver1": ["Звісно ж відкриваю двері.\n Та на всяк випадок дістаю кинджал.", "Hotel_quest\\alchemist16\\alchemist16_choice1.json"],
-        "ansver2": ["Прислухаюсь та заглядаю у замкову шпарину", "Hotel_quest\\alchemist16\\alchemist16_choice2.json"]
+        "ansver1": ["Звісно ж відкриваю двері.\n Та на всяк випадок дістаю кинджал.", "Hotel_quest", "alchemist16", "alchemist16_choice1.json"],
+        "ansver2": ["Прислухаюсь та заглядаю у замкову шпарину", "Hotel_quest", "alchemist16", "alchemist16_choice2.json"]
     },
 
     "items": {

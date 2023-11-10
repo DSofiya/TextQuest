@@ -1,6 +1,7 @@
 import pygame
 import subprocess
 import json
+import os
 
 
 from general_function import load_images, select_font, read_character_info
@@ -44,13 +45,15 @@ class GameRenderer:
     def initialize(self):
         pygame.init()
         self.image_race, self.image_clas, _ = load_images()
-        self.bg_image = pygame.image.load("Menu_images\\picture_menu.jpg")
+        self.bg_image = pygame.image.load(
+            os.path.join("Menu_images", "picture_menu.jpg")
+        )
         self.image_fon = pygame.transform.scale(
-            pygame.image.load("Menu_images\\book.png"),
+            pygame.image.load(os.path.join("Menu_images", "book.png")),
             (self.window_size[0] / 2.1, self.window_size[0] / 3),
         )
         self.image_ansver = pygame.transform.scale(
-            pygame.image.load("Menu_images\\ansver.png"),
+            pygame.image.load(os.path.join("Menu_images", "ansver.png")),
             (self.window_size[0] / 1.6, self.window_size[0] / 12),
         )
         self.window = pygame.display.set_mode(self.window_size)
@@ -117,6 +120,7 @@ class TextBot:
         self.chat_response = description.strip()
 
     def process_answer(self, choice_filename):
+        choice_filename = os.path.join(choice_filename[1], choice_filename[2], choice_filename[3])
         json_data_choice = self.reader.read_json_file(choice_filename)
         existing_data = self.reader.read_json_file(self.file_path_item)
         true_values = [
@@ -124,21 +128,11 @@ class TextBot:
             for key, value in existing_data.items()
             if "folse" not in key.lower()
         ]
-        all_key = [
-            key for key, value in existing_data.items() if "folse" not in key.lower()
-        ]
+        all_key = [key for key, value in existing_data.items() if "folse" not in key.lower()]
         if true_values == len(all_key):
-            next_filename = (
-                json_data_choice.get("next", [])[1]
-                if json_data_choice.get("next")
-                else None
-            )
+            next_filename = (json_data_choice.get("next_end", []) if json_data_choice.get("next_end") else None)
         else:
-            next_filename = (
-                json_data_choice.get("next", [])[0]
-                if json_data_choice.get("next")
-                else None
-            )
+            next_filename = ( json_data_choice.get("next", []) if json_data_choice.get("next") else None)
 
         gold = int(json_data_choice.get("currency", {}).get("gold", 0))
         self.gold += gold
@@ -148,7 +142,7 @@ class TextBot:
         suffixes = {
             "class_selection": self.clas_name[1],
             "race_selection": self.race_name[1],
-            "gender_selection": self.addition[1],
+            "gender_selection": self.addition[1]
         }
         if len(selection):
             selection_key = next(iter(selection.keys()))
@@ -156,7 +150,7 @@ class TextBot:
             suffix = suffixes[selection_as_string]
         else:
             suffix = ""
-        next_filename = f"{next_filename}{suffix}.json"
+        next_filename = os.path.join(next_filename[0], next_filename[1], f"{next_filename[2]}{suffix}.json")
 
         return next_filename
 
@@ -187,7 +181,8 @@ class Button:
         for line in lines:
             text_surface = button_font.render(line, True, YELLOW)
             text_rect = text_surface.get_rect(
-                centerx=self.rect.centerx, centery=self.rect.centery + y_offset)
+                centerx=self.rect.centerx, centery=self.rect.centery + y_offset
+            )
             surface.blit(text_surface, text_rect)
             y_offset += text_rect.height
 
@@ -203,7 +198,9 @@ class GameLogic:
         self.char_index = 0
         self.time_passed = 0
         self.textbot.generate_response(self.textbot.first_file_path)
-        self.buttons = self.load_buttons(self.textbot.ansver1[0], self.textbot.ansver2[0], self.textbot.gold)
+        self.buttons = self.load_buttons(
+            self.textbot.ansver1[0], self.textbot.ansver2[0], self.textbot.gold
+        )
 
     def initialize(self):
         self.button_font, self.menu_font, self.big_font = select_font()
@@ -214,7 +211,9 @@ class GameLogic:
         if keys[pygame.K_UP] and self.scroll_y < 0:
             self.scroll_y += 20
         if keys[pygame.K_DOWN] and self.scroll_y > -(
-            len(self.textbot.chat_response) * self.menu_font.get_linesize()- self.window_size[1] // 5):
+            len(self.textbot.chat_response) * self.menu_font.get_linesize()
+            - self.window_size[1] // 5
+        ):
             self.scroll_y -= 20
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             pos = pygame.mouse.get_pos()
@@ -230,7 +229,9 @@ class GameLogic:
         elif button == self.buttons[0] and self.scroll_y < 0:
             self.scroll_y += 20
         elif button == self.buttons[1] and self.scroll_y > -(
-            len(self.textbot.chat_response) * self.menu_font.get_linesize()- self.window_size[1] // 5):
+            len(self.textbot.chat_response) * self.menu_font.get_linesize()
+            - self.window_size[1] // 5
+        ):
             self.scroll_y -= 20
         elif button == self.buttons[3]:
             if self.textbot.ansver1[1] == "":
@@ -238,7 +239,7 @@ class GameLogic:
                 pygame.quit()
                 subprocess.run(["python", "main.py"])
             else:
-                current_filename = self.textbot.process_answer(self.textbot.ansver1[1])
+                current_filename = self.textbot.process_answer(self.textbot.ansver1)
                 self.textbot.generate_response(current_filename)
                 self.char_index = 0
         elif button == self.buttons[4]:
@@ -247,7 +248,7 @@ class GameLogic:
                 pygame.quit()
                 subprocess.run(["python", "main.py"])
             else:
-                current_filename = self.textbot.process_answer(self.textbot.ansver2[1])
+                current_filename = self.textbot.process_answer(self.textbot.ansver2)
                 self.textbot.generate_response(current_filename)
                 self.char_index = 0
 
@@ -295,7 +296,7 @@ class GameLogic:
                 "y": self.window_size[1] / 4.5,
                 "width": self.window_size[0] / 22,
                 "height": self.window_size[0] / 22,
-                "image_path": "Menu_images\\arroy2_up.png",
+                "image_path": os.path.join("Menu_images", "arroy2_up.png"),
                 "text": "",
             },
             {
@@ -303,7 +304,7 @@ class GameLogic:
                 "y": self.window_size[1] / 2.5,
                 "width": self.window_size[0] / 22,
                 "height": self.window_size[0] / 22,
-                "image_path": "Menu_images\\arroy2_down.png",
+                "image_path": os.path.join("Menu_images", "arroy2_down.png"),
                 "text": "",
             },
             {
@@ -311,7 +312,7 @@ class GameLogic:
                 "y": self.window_size[1] / 7,
                 "width": self.window_size[0] / 10,
                 "height": self.window_size[1] / 5,
-                "image_path": "Character\\exit.png",
+                "image_path": os.path.join("Character", "exit.png"),
                 "text": "Вихід до головного меню ",
             },
             {
@@ -319,7 +320,7 @@ class GameLogic:
                 "y": self.window_size[1] / 1.7,
                 "width": self.window_size[0] / 3,
                 "height": self.window_size[0] / 6,
-                "image_path": "Menu_images\\button.png",
+                "image_path": os.path.join("Menu_images", "button.png"),
                 "text": ansver1,
             },
             {
@@ -327,7 +328,7 @@ class GameLogic:
                 "y": self.window_size[1] / 1.7,
                 "width": self.window_size[0] / 3,
                 "height": self.window_size[0] / 6,
-                "image_path": "Menu_images\\button.png",
+                "image_path": os.path.join("Menu_images", "button.png"),
                 "text": ansver2,
             },
             {
@@ -335,7 +336,7 @@ class GameLogic:
                 "y": self.window_size[1] / 5.8,
                 "width": self.window_size[0] / 25,
                 "height": self.window_size[0] / 15,
-                "image_path": "Menu_images\\gold.png",
+                "image_path": os.path.join("Menu_images", "gold.png"),
                 "text": count_gold,
             },
         ]
@@ -356,7 +357,7 @@ class GameLogic:
 
 
 def main():
-    bg_image = pygame.image.load("Menu_images\\picture_menu.jpg")
+    bg_image = pygame.image.load(os.path.join("Menu_images", "picture_menu.jpg"))
     window_size = bg_image.get_size()
     game = Game(window_size)
     game.run()

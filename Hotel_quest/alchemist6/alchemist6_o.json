@@ -1,8 +1,8 @@
 {
     "description": "Виходячи з номеру готелю, ви помічаєте тінь, що зникла за поворотом. Без вагань, ви починаєте бігти, переслідуючи таємничу постать. Ваші сильні ноги орка роблять великі стрибки, дозволяючи легко подолати відстань до незнайомця. Ви бачите що це невеликий лепрекон. Схопити його? ",
     "ansvers":  {
-        "ansver1": ["Так, схопити засранця!", "Hotel_quest\\alchemist6\\alchemist6_choice3.json"],
-        "ansver2": ["Продовжити шлях на кухню.", "Hotel_quest\\alchemist6\\alchemist6_choice2.json"]
+        "ansver1": ["Так, схопити засранця!", "Hotel_quest", "alchemist6", "alchemist6_choice3.json"],
+        "ansver2": ["Продовжити шлях на кухню.", "Hotel_quest", "alchemist6", "alchemist6_choice2.json"]
     },
 
     "items": {
