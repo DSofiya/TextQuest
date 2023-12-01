@@ -4,7 +4,12 @@ import os
 import subprocess
 import json
 
-from general_function import load_images, select_font, read_character_info
+from general_function import (
+    load_images,
+    select_font,
+    read_character_info,
+    resource_path,
+)
 
 
 WHITE = (255, 255, 255)
@@ -15,7 +20,7 @@ RED = (139, 0, 0)
 
 def initialize_game():
     pygame.init()
-    bg_image = pygame.image.load(os.path.join("Menu_images", "picture_menu.jpg"))
+    bg_image = pygame.image.load(resource_path(os.path.join("Menu_images", "picture_menu.jpg")))
     WINDOW_SIZE = bg_image.get_size()
     window = pygame.display.set_mode(WINDOW_SIZE)
     pygame.display.set_caption("Гра")
@@ -27,7 +32,9 @@ def initialize_game():
 
 def key_verification():
     api_key = ""
-    with open(os.path.join("Text_patern", "api_key.txt"), "r", encoding="utf-8") as file:
+    with open(
+        resource_path(os.path.join("Text_patern", "api_key.txt")), "r", encoding="utf-8"
+    ) as file:
         lines = file.readlines()
         found = False
         for i, line in enumerate(lines):
@@ -69,7 +76,7 @@ def load_buttons(WINDOW_SIZE):
             "y": WINDOW_SIZE[1] / 6.6,
             "width": WINDOW_SIZE[0] / 20,
             "height": WINDOW_SIZE[0] / 20,
-            "image_path": os.path.join("Menu_images", "arroy2_up.png"),
+            "image_path": resource_path(os.path.join("Menu_images", "arroy2_up.png")),
             "text": "",
         },
         {
@@ -77,7 +84,7 @@ def load_buttons(WINDOW_SIZE):
             "y": WINDOW_SIZE[1] / 3,
             "width": WINDOW_SIZE[0] / 20,
             "height": WINDOW_SIZE[0] / 20,
-            "image_path": os.path.join("Menu_images", "arroy2_down.png"),
+            "image_path": resource_path(os.path.join("Menu_images", "arroy2_down.png")),
             "text": "",
         },
         {
@@ -85,7 +92,7 @@ def load_buttons(WINDOW_SIZE):
             "y": WINDOW_SIZE[1] / 8,
             "width": WINDOW_SIZE[0] / 11,
             "height": WINDOW_SIZE[1] / 5.5,
-            "image_path": os.path.join("Character", "exit.png"),
+            "image_path": resource_path(os.path.join("Character", "exit.png")),
             "text": "Вихід до головного меню ",
         },
     ]
@@ -131,7 +138,9 @@ def grate_into_rows(scrolling_text, menu_font, WINDOW_SIZE):
 
 
 def find_text(prompt_key):
-    with open(os.path.join("Text_patern", "Rosefild.json"), "r", encoding="utf-8") as file:
+    with open(
+        resource_path(os.path.join("Text_patern", "Rosefild.json"), "r", encoding="utf-8")
+    ) as file:
         text_list = json.load(file)
         text = text_list.get(prompt_key)
         return text
@@ -211,10 +220,12 @@ def get_ansver_GPT(user_input, prompt_text):
 
 def refresh_window(buttons, button_font, WINDOW_SIZE, window, bg_image):
     image_fon = image(
-        os.path.join("Menu_images", "book.png"), (WINDOW_SIZE[0] / 2, WINDOW_SIZE[0] / 2.5)
+        resource_path(os.path.join("Menu_images", "book.png")),
+        (WINDOW_SIZE[0] / 2, WINDOW_SIZE[0] / 2.5),
     )
     image_ansver = image(
-        os.path.join("Menu_images", "ansver.png"), (WINDOW_SIZE[0] / 1.6, WINDOW_SIZE[0] / 12)
+        resource_path(os.path.join("Menu_images", "ansver.png")),
+        (WINDOW_SIZE[0] / 1.6, WINDOW_SIZE[0] / 12),
     )
     image_race, image_class = load_images()
 
@@ -314,7 +325,7 @@ def main():
                     if button.is_clicked(pos):
                         if button == buttons[-1]:
                             pygame.quit()
-                            subprocess.run(["python", "main.py"])
+                            subprocess.run(["python", resource_path("main.py")])
                         elif button == buttons[0] and scroll_y < 0:
                             scroll_y += 20
                         elif button == buttons[1] and scroll_y > -(

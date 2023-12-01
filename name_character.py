@@ -5,7 +5,7 @@ import subprocess
 import random
 import json
 
-from general_function import select_font, read_character_info
+from general_function import select_font, read_character_info, resource_path
 
 
 YELLOW = (255, 228, 181)
@@ -49,7 +49,7 @@ class CharacterSelector:
                 "y": self.window_size[0] / 9.8,
                 "width": self.window_size[0] / 7,
                 "height": self.window_size[0] / 8,
-                "image_path": os.path.join("Character", "exit.png"),
+                "image_path": resource_path(os.path.join("Character", "exit.png")),
                 "text": "Вихід у головне меню",
             },
             {
@@ -57,7 +57,7 @@ class CharacterSelector:
                 "y": self.window_size[0] / 3.5,
                 "width": self.window_size[0] / 5.5,
                 "height": self.window_size[0] / 8,
-                "image_path": os.path.join("Menu_images", "button.png"),
+                "image_path": resource_path(os.path.join("Menu_images", "button.png")),
                 "text": "Записати",
             },
             {
@@ -65,7 +65,7 @@ class CharacterSelector:
                 "y": self.window_size[0] / 4.2,
                 "width": self.window_size[0] / 5,
                 "height": self.window_size[0] / 5,
-                "image_path": os.path.join("Character", "random", "random1.png"),
+                "image_path": resource_path(os.path.join("Character", "random", "random1.png")),
                 "text": "Рандомний вибір імені",
             },
         ]
@@ -83,9 +83,9 @@ class CharacterSelector:
         ]
 
         self.button_random_images = [
-            pygame.image.load(os.path.join("Character", "random", "random1.png")),
-            pygame.image.load(os.path.join("Character", "random", "random2.png")),
-            pygame.image.load(os.path.join("Character", "random", "random3.png")),
+            pygame.image.load(resource_path(os.path.join("Character", "random", "random1.png"))),
+            pygame.image.load(resource_path(os.path.join("Character", "random", "random2.png"))),
+            pygame.image.load(resource_path(os.path.join("Character", "random", "random3.png"))),
         ]
 
         current_image_index = 0
@@ -164,12 +164,11 @@ class CharacterSelector:
                         if button.is_clicked(pos):
                             if button == self.buttons[0]:
                                 pygame.quit()
-                                subprocess.run(["python", "main.py"])
+                                subprocess.run(["python", resource_path("main.py")])
                             elif button == self.buttons[2]:
                                 choose_name_random = True
-                                random_name_file = (
-                                    os.path.join("Text_patern", f"random_name{addition[1]}.txt")
-                                )
+                                random_name_file = resource_path(os.path.join(
+                                    "Text_patern", f"random_name{addition[1]}.txt"))
                                 self.user_name = self.get_random_name(random_name_file)
 
                             elif button == self.buttons[1]:
@@ -187,7 +186,7 @@ class CharacterSelector:
             return random_line.strip()
 
     def handle_character_creation_success(self, window, character_created_message):
-        path_file = os.path.join("Text_patern", "character_info.json")
+        path_file = resource_path(os.path.join("Text_patern", "character_info.json"))
         with open(path_file, "r", encoding="utf-8") as file:
             data = json.load(file)
             selected_name = f"Моє ім'я - {self.user_name}"
@@ -204,12 +203,12 @@ class CharacterSelector:
         pygame.display.flip()
         pygame.time.wait(1000)
         pygame.quit()
-        subprocess.run(["python", "main.py"])
+        subprocess.run(["python", resource_path("main.py")])
 
 
 if __name__ == "__main__":
     pygame.init()
-    bg_image = pygame.image.load(os.path.join("Menu_images", "picture_menu.jpg"))
+    bg_image = pygame.image.load(resource_path(os.path.join("Menu_images", "picture_menu.jpg")))
     WINDOW_SIZE = bg_image.get_size()
     character_selector = CharacterSelector(bg_image, WINDOW_SIZE)
     character_selector.display_menu()

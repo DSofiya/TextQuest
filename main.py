@@ -2,7 +2,7 @@ import pygame
 import sys
 import os
 import subprocess
-from general_function import load_images, select_font
+from general_function import load_images, select_font, resource_path
 
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
@@ -12,7 +12,7 @@ class GameInitializer:
     @staticmethod
     def initialize_game():
         pygame.init()
-        image_path = os.path.join("Menu_images", "picture_character.jpg")
+        image_path = resource_path(os.path.join("Menu_images", "picture_character.jpg"))
         bg_image = pygame.image.load(image_path)
         WINDOW_SIZE = bg_image.get_size()
         window = pygame.display.set_mode(WINDOW_SIZE)
@@ -46,7 +46,7 @@ class ButtonManager:
                 "y": WINDOW_SIZE[0] / 4,
                 "width": WINDOW_SIZE[0] / 5,
                 "height": WINDOW_SIZE[1] / 8,
-                "image_path": os.path.join("Menu_images", "button.png"),
+                "image_path": resource_path(os.path.join("Menu_images", "button.png")),
                 "text": "Створити героя",
             },
             {
@@ -54,7 +54,7 @@ class ButtonManager:
                 "y": WINDOW_SIZE[0] / 3.2,
                 "width": WINDOW_SIZE[0] / 5,
                 "height": WINDOW_SIZE[1] / 8,
-                "image_path": os.path.join("Menu_images", "button.png"),
+                "image_path": resource_path(os.path.join("Menu_images", "button.png")),
                 "text": "Обрати пригоду",
             },
             {
@@ -62,7 +62,7 @@ class ButtonManager:
                 "y": WINDOW_SIZE[0] / 2.6,
                 "width": WINDOW_SIZE[0] / 5,
                 "height": WINDOW_SIZE[1] / 8,
-                "image_path": os.path.join("Menu_images", "button.png"),
+                "image_path": resource_path(os.path.join("Menu_images", "button.png")),
                 "text": "Вихід",
             },
         ]
@@ -112,10 +112,10 @@ class MenuEventHandler:
     def handle_button_click(button):
         if button.text == "Створити героя":
             pygame.quit()
-            subprocess.run(["python", "character_creation_menu.py"])
+            subprocess.run(["python", resource_path("character_creation_menu.py")])
         elif button.text == "Обрати пригоду":
             pygame.quit()
-            subprocess.run(["python", "adventure_menu.py"])
+            subprocess.run(["python", resource_path("adventure_menu.py")])
         elif button.text == "Вихід":
             pygame.quit()
             sys.exit()

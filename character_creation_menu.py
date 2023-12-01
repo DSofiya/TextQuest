@@ -5,7 +5,7 @@ import subprocess
 import json
 
 
-from general_function import select_font, sufix_images
+from general_function import select_font, sufix_images, resource_path
 
 
 class Button:
@@ -39,8 +39,8 @@ class CharacterSelector:
                 "y": self.window_size[0] / 8,
                 "width": self.window_size[0] / 7,
                 "height": self.window_size[0] / 4.5,
-                "image_path": os.path.join("Character", "Human_m.png"),
-                "image_path_f": os.path.join("Character", "Human_f.png"),
+                "image_path": resource_path(os.path.join("Character", "Human_m.png")),
+                "image_path_f": resource_path(os.path.join("Character", "Human_f.png")),
                 "text": "Людина",
             },
             {
@@ -48,8 +48,8 @@ class CharacterSelector:
                 "y": self.window_size[0] / 8,
                 "width": self.window_size[0] / 7,
                 "height": self.window_size[0] / 4,
-                "image_path": os.path.join("Character", "Tieflings_m.png"),
-                "image_path_f": os.path.join("Character", "Tieflings_f.png"),
+                "image_path": resource_path(os.path.join("Character", "Tieflings_m.png")),
+                "image_path_f": resource_path(os.path.join("Character", "Tieflings_f.png")),
                 "text": "Тифлінг",
             },
             {
@@ -57,8 +57,8 @@ class CharacterSelector:
                 "y": self.window_size[0] / 4,
                 "width": self.window_size[0] / 7,
                 "height": self.window_size[0] / 4.5,
-                "image_path": os.path.join("Character","Ork_m.png"),
-                "image_path_f": os.path.join("Character", "Ork_f.png"),
+                "image_path": resource_path(os.path.join("Character","Ork_m.png")),
+                "image_path_f": resource_path(os.path.join("Character", "Ork_f.png")),
                 "text": "Орк",
             },
             {
@@ -66,8 +66,8 @@ class CharacterSelector:
                 "y": self.window_size[0] / 3.5,
                 "width": self.window_size[0] / 7,
                 "height": self.window_size[0] / 5.5,
-                "image_path": os.path.join("Character", "Gnomes_m.png"),
-                "image_path_f": os.path.join("Character", "Gnomes_f.png"),
+                "image_path": resource_path(os.path.join("Character", "Gnomes_m.png")),
+                "image_path_f": resource_path(os.path.join("Character", "Gnomes_f.png")),
                 "text": "Гном",
             },
             {
@@ -75,8 +75,8 @@ class CharacterSelector:
                 "y": self.window_size[0] / 8,
                 "width": self.window_size[0] / 8,
                 "height": self.window_size[0] / 4.5,
-                "image_path": os.path.join("Character", "Elves_m.png"),
-                "image_path_f": os.path.join("Character", "Elves_f.png"),
+                "image_path": resource_path(os.path.join("Character", "Elves_m.png")),
+                "image_path_f": resource_path(os.path.join("Character", "Elves_f.png")),
                 "text": "Ельф",
             },
             {
@@ -84,8 +84,8 @@ class CharacterSelector:
                 "y": self.window_size[0] / 4,
                 "width": self.window_size[0] / 7,
                 "height": self.window_size[0] / 4.5,
-                "image_path": os.path.join("Character", "Aasimar_m.png"),
-                "image_path_f": os.path.join("Character", "Aasimar_f.png"),
+                "image_path": resource_path(os.path.join("Character", "Aasimar_m.png")),
+                "image_path_f": resource_path(os.path.join("Character", "Aasimar_f.png")),
                 "text": "Аазімар",
             },
             {
@@ -93,8 +93,8 @@ class CharacterSelector:
                 "y": self.window_size[0] / 12,
                 "width": self.window_size[0] / 11,
                 "height": self.window_size[0] / 11,
-                "image_path": os.path.join("Character", "exit.png"),
-                "image_path_f": os.path.join("Character", "exit.png"),
+                "image_path": resource_path(os.path.join("Character", "exit.png")),
+                "image_path_f": resource_path(os.path.join("Character", "exit.png")),
                 "text": "Вихід у головне меню",
             },
         ]
@@ -104,7 +104,7 @@ class CharacterSelector:
             self.window_size[0] / 5.5,
             self.window_size[0] / 11,
             self.window_size[0] / 11,
-            os.path.join("Character", "male", "change.png"),
+            resource_path(os.path.join("Character", "male", "change.png")),
             "Змінити стать",
         )
         self.gender_button2 = Button(
@@ -112,7 +112,7 @@ class CharacterSelector:
             self.window_size[0] / 5.5,
             self.window_size[0] / 11,
             self.window_size[0] / 11,
-            os.path.join("Character", "male", "change2.png"),
+            resource_path(os.path.join("Character", "male", "change2.png")),
             "Змінити стать",
         )
 
@@ -187,10 +187,10 @@ class CharacterSelector:
     def handle_button_click(self, button, change):
         if button == self.buttons[-1]:
             pygame.quit()
-            subprocess.run(["python", "main.py"])
+            subprocess.run(["python", resource_path("main.py")])
         else:
             race_name = button.text
-            path_file = os.path.join("Text_patern", "character_info.json")
+            path_file = resource_path(os.path.join("Text_patern", "character_info.json"))
             with open(path_file, "r", encoding="utf-8") as file:
                 data = json.load(file)
                 syfix = sufix_images(button.text)
@@ -204,13 +204,13 @@ class CharacterSelector:
             with open(path_file, "w", encoding="utf-8") as file:
                 json.dump(data, file, ensure_ascii=False, indent=4)
             pygame.quit()
-            subprocess.run(["python", "clas_menu.py"])
+            subprocess.run(["python", resource_path("clas_menu.py")])
 
 
 if __name__ == "__main__":
     YELLOW = (255, 228, 181)
     pygame.init()
-    bg_image = pygame.image.load(os.path.join("Menu_images", "picture_menu.jpg"))
+    bg_image = pygame.image.load(resource_path(os.path.join("Menu_images", "picture_menu.jpg")))
     WINDOW_SIZE = bg_image.get_size()
     character_selector = CharacterSelector(bg_image, WINDOW_SIZE)
     character_selector.display_menu()

@@ -4,7 +4,7 @@ import os
 import subprocess
 import pyperclip
 import json
-from general_function import load_images, select_font
+from general_function import load_images, select_font, resource_path
 
 YELLOW = (255, 228, 181)
 RED = (139, 0, 0)
@@ -40,9 +40,7 @@ class Menu:
         pygame.init()
         self.found = True
         self.api_key_text = ""
-        self.bg_image = pygame.image.load(
-            os.path.join("Menu_images", "picture_menu.jpg")
-        )
+        self.bg_image = pygame.image.load(resource_path(os.path.join("Menu_images", "picture_menu.jpg")))
         self.WINDOW_SIZE = self.bg_image.get_size()
         self.window = pygame.display.set_mode(self.WINDOW_SIZE)
         pygame.display.set_caption("Вибір пригоди")
@@ -60,7 +58,7 @@ class Menu:
                 "y": self.WINDOW_SIZE[0] / 10,
                 "width": self.WINDOW_SIZE[0] / 9,
                 "height": self.WINDOW_SIZE[0] / 8,
-                "image_path": os.path.join("Character", "exit.png"),
+                "image_path": resource_path(os.path.join("Character", "exit.png")),
                 "text": "Вихід до головного меню ",
                 "callback": self.exit_game,
             },
@@ -69,7 +67,7 @@ class Menu:
                 "y": self.WINDOW_SIZE[0] / 8.4,
                 "width": self.WINDOW_SIZE[0] / 6,
                 "height": self.WINDOW_SIZE[0] / 5.6,
-                "image_path": os.path.join("Adventure", "castel.jpg"),
+                "image_path": resource_path(os.path.join("Adventure", "castel.jpg")),
                 "text": "Вбивство та суд у місті Леоніс",
                 "callback": self.start_castle_adventure,
             },
@@ -78,7 +76,7 @@ class Menu:
                 "y": self.WINDOW_SIZE[0] / 8.4,
                 "width": self.WINDOW_SIZE[0] / 6,
                 "height": self.WINDOW_SIZE[0] / 5.6,
-                "image_path": os.path.join("Adventure", "hotel.jpg"),
+                "image_path": resource_path(os.path.join("Adventure", "hotel.jpg")),
                 "text": "Готель 'Етельбург'",
                 "callback": self.start_hotel_adventure,
             },
@@ -87,7 +85,7 @@ class Menu:
                 "y": self.WINDOW_SIZE[0] / 3.2,
                 "width": self.WINDOW_SIZE[0] / 6,
                 "height": self.WINDOW_SIZE[0] / 5.6,
-                "image_path": os.path.join("Adventure", "town.jpg"),
+                "image_path": resource_path(os.path.join("Adventure", "town.jpg")),
                 "text": "Темна загроза над містом Роузфілд",
                 "callback": self.start_town_adventure,
             },
@@ -96,7 +94,7 @@ class Menu:
                 "y": self.WINDOW_SIZE[0] / 2.2,
                 "width": self.WINDOW_SIZE[0] / 9,
                 "height": self.WINDOW_SIZE[0] / 16,
-                "image_path": os.path.join("Menu_images", "button.png"),
+                "image_path": resource_path(os.path.join("Menu_images", "button.png")),
                 "text": "Зберегти ключ",
                 "callback": self.save_api_key,
             },
@@ -118,50 +116,50 @@ class Menu:
         return buttons
 
     def exit_game(self):
-        subprocess.run(["python", "main.py"])
+        subprocess.run(["python", resource_path("main.py")])
         pygame.quit()
         sys.exit()
 
     def start_castle_adventure(self):
         self.setup_adventure_paths(
-            os.path.join("Murder_in_city", "beginning", "beginning.json"),
-            os.path.join("Murder_in_city", "items.json"),
+            resource_path(os.path.join("Murder_in_city", "beginning", "beginning.json")),
+            resource_path(os.path.join("Murder_in_city", "items.json")),
         )
 
     def start_hotel_adventure(self):
         self.setup_adventure_paths(
-            os.path.join("Hotel_quest", "beginning", "beginning.json"),
-            os.path.join("Hotel_quest", "items.json"),
+            resource_path(os.path.join("Hotel_quest", "beginning", "beginning.json")),
+            resource_path(os.path.join("Hotel_quest", "items.json")),
         )
 
     def start_town_adventure(self):
         with open(
-            os.path.join("Text_patern", "api_key.txt"), "r", encoding="utf-8"
+            resource_path(os.path.join("Text_patern", "api_key.txt")), "r", encoding="utf-8"
         ) as file:
             content = file.read()
             if "АПІ" in content:
                 self.found = True
-                subprocess.run(["python", "play_game_GPT.py"])
+                subprocess.run(["python", resource_path("play_game_GPT.py")])
                 pygame.quit()
                 sys.exit()
             else:
                 self.found = False
 
     def setup_adventure_paths(self, first_file_path, file_path_item):
-        path_file = os.path.join("Text_patern", "character_info.json")
+        path_file = resource_path(os.path.join("Text_patern", "character_info.json"))
         with open(path_file, "r", encoding="utf-8") as file:
             data = json.load(file)
             data["first_file_path"] = first_file_path
             data["file_path_item"] = file_path_item
         with open(path_file, "w", encoding="utf-8") as file:
             json.dump(data, file, ensure_ascii=False, indent=4)
-        subprocess.run(["python", "play_game.py"])
+        subprocess.run(["python", resource_path("play_game.py")])
         pygame.quit()
         sys.exit()
 
     def save_api_key(self):
         with open(
-            os.path.join("Text_patern", "api_key.txt"), "w", encoding="utf-8"
+            resource_path(os.path.join("Text_patern", "api_key.txt")), "w", encoding="utf-8"
         ) as file:
             lines = self.api_key_text.strip("")
             file.writelines(f"АПІ - {lines}")

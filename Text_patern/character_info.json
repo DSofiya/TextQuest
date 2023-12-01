@@ -1,8 +1,8 @@
 {
-    "name": "Моє ім'я - Хадріан",
+    "name": "Моє ім'я - Роузелія",
     "race": [
-        "Моя раса - Ельф",
-        "_e"
+        "Моя раса - Людина",
+        "_h"
     ],
     "class": [
         "Мій клас - Воїн",
@@ -12,6 +12,6 @@
         "Моя стать - Жінка",
         "_f"
     ],
-    "first_file_path": "Hotel_quest\\beginning\\beginning.json",
-    "file_path_item": "Hotel_quest\\items.json"
+    "first_file_path": "Murder_in_city\\beginning\\beginning.json",
+    "file_path_item": "Murder_in_city\\items.json"
 }
