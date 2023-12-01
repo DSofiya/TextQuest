@@ -1,0 +1,12 @@
+{
+    "description": "І ще один день розслідування, ця справа не така проста як здається, можливо ви десь повернули не туди? Що ж робити далі?",
+    "ansvers":  {
+        "ansver1": ["Піти допитувати\n підозрюваних", "Murder_in_city", "castle70", "castle70_choice1.json"],
+        "ansver2": ["Відвідати Ребендера ", "Murder_in_city", "castle70", "castle70_choice2.json"]
+    },
+
+    "items": {
+        "none": "False"
+    }
+}
+    

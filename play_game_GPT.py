@@ -138,7 +138,6 @@ def find_text(prompt_key):
 
 
 def get_prompt_text(user_input, prompt_text):
-    # def get_prompt_text():
     race_name, _, _, name, _, _ = read_character_info()
 
     if prompt_text == "":
@@ -191,7 +190,6 @@ def get_prompt_text(user_input, prompt_text):
     else:
         text = find_text(prompt_text)
     text = f"({name},{race_name[0]}) {text} "
-    # text = f"({name},{race_name}) "
     return text
 
 
@@ -211,22 +209,6 @@ def get_ansver_GPT(user_input, prompt_text):
     return print_exept_openai, response
 
 
-# def get_ansver_GPT():
-#     print_exept_openai = False
-#     response = None
-#     prompt_text=get_prompt_text()
-#     conversation_history = [{"role": "system", "content": "Ти досвідчений Dungeon Master."},
-#     {"role": "user", "content": "Почати гру."},
-#     {"role": "user", "content": prompt_text},
-#     {"role": "assistant", "content": "Ви входите до таверни 'Зелений Дракон' - відомого місця для пригодників у Роузфілді." },
-#     {"role": "user", "content":"Відповідь повинна завершуватись двома варіантами дій для мене: поговорити з лікарем біля барної стійки, поговорити з хазяїном таверни."}
-#     ]
-#     response = openai.ChatCompletion.create(
-#     model="gpt-3.5-turbo-0613",
-#     messages=conversation_history)
-#     return  response
-
-
 def refresh_window(buttons, button_font, WINDOW_SIZE, window, bg_image):
     image_fon = image(
         os.path.join("Menu_images", "book.png"), (WINDOW_SIZE[0] / 2, WINDOW_SIZE[0] / 2.5)
@@ -234,7 +216,7 @@ def refresh_window(buttons, button_font, WINDOW_SIZE, window, bg_image):
     image_ansver = image(
         os.path.join("Menu_images", "ansver.png"), (WINDOW_SIZE[0] / 1.6, WINDOW_SIZE[0] / 12)
     )
-    image_race, image_class, _ = load_images()
+    image_race, image_class = load_images()
 
     window.blit(bg_image, (0, 0))
     window.blit(image_fon, (WINDOW_SIZE[0] / 4, WINDOW_SIZE[1] / 7))
@@ -274,10 +256,8 @@ def main():
     render_chat_response(chat_response, menu_font, scroll_y, window, WINDOW_SIZE)
     pygame.display.flip()
 
-    # response = get_ansver_GPT()
     print_exept_openai, response = get_ansver_GPT(user_input, "first_prompt")
     if response is not None:
-        # chat_response = grate_into_rows(response.choices[0].message['content'],menu_font,WINDOW_SIZE)
         chat_response = grate_into_rows(
             response.choices[0].text.strip(), menu_font, WINDOW_SIZE
         )
@@ -320,17 +300,6 @@ def main():
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
                     print_exept_openai, response = get_ansver_GPT(user_input, "")
-                    # conversation_history = [
-                    # {"role": "system", "content": "Ти досвідчений Dungeon Master."},
-                    # {"role": "assistant", "content":"Хазяїн таверни розповідає про дивні темні тіні, що з'явились у місті і забирають спогади у Роузфілді"},
-                    # {"role": "user", "content":user_input},
-                    # {"role": "user", "content":"Відповідь повинна завершуватись двома варіантами дій піти у Храм, чи у Магазин алхіміка."},
-                    # ]
-                    # response = openai.ChatCompletion.create(
-                    # model="gpt-3.5-turbo",
-                    # messages=conversation_history)
-                    # chat_response = grate_into_rows(response.choices[0].message['content'],menu_font,WINDOW_SIZE)
-
                     chat_response = grate_into_rows(
                         response.choices[0].text.strip(), menu_font, WINDOW_SIZE
                     )

@@ -1,6 +1,6 @@
 {
     "next": [
-        " "
+        "Murder_in_city", "end", "end"
     ],
     
     "currency": {
@@ -8,6 +8,9 @@
     },
     
     "selection": {
+        "class_selection": "False",
+        "race_selection": "False",
+        "gender_selection": "False"
     }
 }
     

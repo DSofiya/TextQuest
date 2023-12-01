@@ -1,0 +1,12 @@
+{
+    "description": "Уже під ранок ви повернулись до готелю, уся інформація перемішалась у вашій голові разом з випитим.  Що ж робити далі?",
+    "ansvers":  {
+        "ansver1": ["Піти допитувати \n підозрюваних ", "Murder_in_city", "castle17", "castle17_choice1.json"],
+        "ansver2": [" Відвідати Ребендера", "Murder_in_city", "castle17", "castle17_choice2.json"]
+    },
+
+    "items": {
+        "none": "False"
+    }
+}
+    

@@ -49,7 +49,7 @@ class Menu:
         self.initialize_game()
 
     def initialize_game(self):
-        self.image_race, self.image_clas, self.image_cooming_soon = load_images()
+        self.image_race, self.image_clas = load_images()
         self.button_font, self.menu_font, self.big_font = select_font()
         self.buttons = self.load_buttons()
 
@@ -118,8 +118,9 @@ class Menu:
         return buttons
 
     def exit_game(self):
-        pygame.quit()
         subprocess.run(["python", "main.py"])
+        pygame.quit()
+        sys.exit()
 
     def start_castle_adventure(self):
         self.setup_adventure_paths(
@@ -140,8 +141,9 @@ class Menu:
             content = file.read()
             if "АПІ" in content:
                 self.found = True
-                pygame.quit()
                 subprocess.run(["python", "play_game_GPT.py"])
+                pygame.quit()
+                sys.exit()
             else:
                 self.found = False
 
@@ -153,8 +155,8 @@ class Menu:
             data["file_path_item"] = file_path_item
         with open(path_file, "w", encoding="utf-8") as file:
             json.dump(data, file, ensure_ascii=False, indent=4)
-        pygame.quit()
         subprocess.run(["python", "play_game.py"])
+        pygame.quit()
         sys.exit()
 
     def save_api_key(self):
@@ -176,12 +178,7 @@ class Menu:
         for button in self.buttons:
             button.draw(self.window, True, self.button_font)
         self.buttons[-1].draw(self.window, False, self.button_font)
-
-        self.window.blit(
-            self.image_cooming_soon,
-            (self.WINDOW_SIZE[0] / 3.2, self.WINDOW_SIZE[0] / 9),
-        )
-
+      
         user_surface = self.menu_font.render(
             "API key: " + self.api_key_text, True, YELLOW
         )

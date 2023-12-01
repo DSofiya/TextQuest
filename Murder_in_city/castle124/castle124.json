@@ -1,0 +1,12 @@
+{
+    "description": "Ви вже звично зайшли до таверни через таємний вхід. Гном стояв за стійкою і ви підійшли до нього. ",
+    "ansvers":  {
+        "ansver1": ["Які чутки ходять\n про це вбивство\n у місті", "Murder_in_city", "castle124", "castle124_choice1.json"],
+        "ansver2": ["Мені потрібна інформація\n Абнуздея Любовськи", "Murder_in_city", "castle124", "castle124_choice2.json"]
+    },
+
+    "items": {
+        "none": "False"
+    }
+}
+    

@@ -1,0 +1,12 @@
+{
+    "description": "Прийшов день суду, вам необхідно вказати на злочинця",
+    "ansvers":  {
+        "ansver1": ["Катаріна", "Murder_in_city", "castle118", "castle118_choice1.json"],
+        "ansver2": ["Абнуздей", "Murder_in_city", "castle118", "castle118_choice2.json"]
+    },
+
+    "items": {
+        "none": "False"
+    }
+}
+    

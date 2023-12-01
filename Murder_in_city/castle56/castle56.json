@@ -1,0 +1,12 @@
+{
+    "description": " 'Ельтей Матильськи перший раз чую. І взагалі що ти впарюєш мені якісь вигадки. У тебе ж немає на мене нічого,правда?'",
+    "ansvers":  {
+        "ansver1": ["Розказати усе, що\n ви дізнались від Реба", "Murder_in_city", "castle56", "castle56_choice1.json"],
+        "ansver2": ["Притримати цю\n інформацію і піти", "Murder_in_city", "castle56", "castle56_choice2.json"]
+    },
+
+    "items": {
+        "none": "False"
+    }
+}
+    

@@ -1,0 +1,12 @@
+{
+    "description": "Уже під ранок ви повернулись до готелю. Там ви трохи освіжились, змінили одяг та пішли до свого тимчасового кабінету. Що ж робити далі?",
+    "ansvers":  {
+        "ansver1": ["Відвідати Ребендера", "Murder_in_city", "castle111", "castle111_choice1.json"],
+        "ansver2": ["Допитати Абнуздея", "Murder_in_city", "castle111", "castle111_choice2.json"]
+    },
+
+    "items": {
+        "none": "False"
+    }
+}
+    

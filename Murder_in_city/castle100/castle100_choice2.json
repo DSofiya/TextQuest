@@ -1,0 +1,16 @@
+{
+    "next": [
+        "Murder_in_city", "castle102", "castle102"
+    ],
+    
+    "currency": {
+        "gold": 0
+    },
+    
+    "selection": {
+        "class_selection": "False",
+        "race_selection": "False",
+        "gender_selection": "False"
+    }
+}
+    

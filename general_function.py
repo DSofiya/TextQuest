@@ -62,15 +62,11 @@ def load_images():
 
     image_race = pygame.image.load(race_images.get(race, os.path.join("Character", "Human_f.png")))
     image_clas = pygame.image.load(clas_images.get(clas, os.path.join("Character", "Fighter.png")))
-    image_cooming_soon = pygame.image.load(os.path.join("Menu_images", "coming_soon.png"))
-
+    
     image_race = resize_image(image_race, MAX_WIDTH_RASE, MAX_HEIGHT_RASE)
     image_clas = resize_image(image_clas, MAX_WIDTH_CLAS, MAX_HEIGHT_CLAS)
-    image_cooming_soon = resize_image(
-        image_cooming_soon, MAX_WIDTH_CLAS, MAX_HEIGHT_CLAS
-    )
-
-    return image_race, image_clas, image_cooming_soon
+    
+    return image_race, image_clas
 
 
 def select_font():

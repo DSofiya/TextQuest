@@ -1,0 +1,12 @@
+{
+    "description": "Наступного дня у своєму тимчасовому кабінеті переглядаючи матеріали справи ви вирішували що  ж робити далі.",
+    "ansvers":  {
+        "ansver1": ["Піти допитувати\n підозрюваних", "Murder_in_city", "castle40", "castle40_choice1.json"],
+        "ansver2": ["Допитати ельфа", "Murder_in_city", "castle40", "castle40_choice2.json"]
+    },
+
+    "items": {
+        "none": "False"
+    }
+}
+    

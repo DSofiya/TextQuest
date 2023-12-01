@@ -44,7 +44,7 @@ class GameRenderer:
 
     def initialize(self):
         pygame.init()
-        self.image_race, self.image_clas, _ = load_images()
+        self.image_race, self.image_clas = load_images()
         self.bg_image = pygame.image.load(
             os.path.join("Menu_images", "picture_menu.jpg")
         )
@@ -267,8 +267,8 @@ class GameLogic:
 
         for char in displayed_text:
             current_line += char
-            text_width, text_height = self.menu_font.size(current_line)
-            char_width, char_height = self.menu_font.size(char)
+            text_width, _ = self.menu_font.size(current_line)
+            char_width, _ = self.menu_font.size(char)
             if text_width > self.window_size[0] / 3 and char == " " or char == ":":
                 chat_surface = self.menu_font.render(char, True, BLACK)
                 surface.blit(chat_surface, (x_position, y_position + self.scroll_y))

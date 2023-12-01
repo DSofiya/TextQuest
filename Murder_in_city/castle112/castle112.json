@@ -1,0 +1,12 @@
+{
+    "description": "Наступного дня у своєму тимчасовому кабінеті переглядаючи матеріали справи ви вирішували що  ж робити далі.",
+    "ansvers":  {
+        "ansver1": ["Відвідати Ребендера", "Murder_in_city", "castle112", "castle112_choice1.json"],
+        "ansver2": ["Поговорити з Аліандром", "Murder_in_city", "castle112", "castle112_choice2.json"]
+    },
+
+    "items": {
+        "none": "False"
+    }
+}
+    

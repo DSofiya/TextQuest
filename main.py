@@ -87,7 +87,7 @@ class MenuRenderer:
         for button in buttons:
             button.draw(window, fon_font)
         title_text = big_font.render("Меню гри ", True, BLACK)
-        image_race, image_clas, _ = load_images()
+        image_race, image_clas = load_images()
 
         window.blit(title_text, (WINDOW_SIZE[0] / 2.5, WINDOW_SIZE[0] / 5.5))
         window.blit(image_race, (WINDOW_SIZE[0] / 7, WINDOW_SIZE[1] / 4))
@@ -125,13 +125,16 @@ def main():
     window, WINDOW_SIZE, bg_image = GameInitializer.initialize_game()
     fon_font, _, big_font = select_font()
     buttons = ButtonManager.load_buttons(WINDOW_SIZE)
+    run = True
 
-    while True:
-        MenuEventHandler.handle_events(buttons)
+    while run:
         MenuRenderer.render_menu(
             window, bg_image, buttons, fon_font, big_font, WINDOW_SIZE
         )
-        pygame.display.flip()
+        MenuEventHandler.handle_events(buttons)
+        if window._pixels_address == None:
+            run = False
+            break
 
 
 if __name__ == "__main__":
